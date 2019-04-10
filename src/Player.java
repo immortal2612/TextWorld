@@ -7,6 +7,7 @@ public class Player {
 
     public Player(String n, Graph.Node g){
         name = n;
+        current = g;
     }
 
     public void addItem(Item a){
