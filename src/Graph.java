@@ -59,6 +59,22 @@ public class Graph {
         }
     }
 
+    public void getCreaturesInCurrent(Node a){
+        ArrayList<Creature> c = new ArrayList<>();
+
+        for(Creature x: creatures){
+            if(x.getCurrentRoom() == a){
+                c.add(x);
+            }
+        }
+        if(c.size() == 0){
+            System.out.println("No creatures in current room.");
+        }
+        for(Creature y: c){
+            System.out.println(y.getName());
+        }
+    }
+
     public class Node {
         private String name;
         private HashMap<String, Node> neighbors = new HashMap<String, Node>();

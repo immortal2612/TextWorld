@@ -39,7 +39,7 @@ public class Main {
             if(response.contains("go")){
                 Go(response, p);
             }else if (response.contains("look")){
-                System.out.println(p.getNeighbors());
+                getCreatures();
             }else if(response.contains("add")){
                 add(response,p);
             }else if(response.contains("Items")) {
@@ -48,10 +48,14 @@ public class Main {
                 Pickup(response, p);
             } else if(response.contains("Drop")){
                 Drop(response, p);
-            }else if(response.contains("help")){
+            } else if(response.contains("Neighbors")){
+                System.out.println(p.getNeighbors());
+            }
+            else if(response.contains("help")){
                 System.out.println("Commands:");
                 System.out.println("Go <roomname>");
                 System.out.println("Look");
+                System.out.println("Neighbors");
                 System.out.println("Items");
                 System.out.println("Pickup <Item>");
                 System.out.println("Drop <Item>");
@@ -67,6 +71,11 @@ public class Main {
         }while (response!="quit");
 
 
+    }
+
+    private static void getCreatures() {
+        Graph.Node current = p.getCurrent();
+        g.getCreaturesInCurrent(current);
     }
 
 
